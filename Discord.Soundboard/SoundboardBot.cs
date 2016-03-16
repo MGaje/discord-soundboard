@@ -279,6 +279,7 @@ namespace Discord.Soundboard
                                     string.Format("downloaded '{0}'", name));
 
                                 SoundEffectRepository.Add(new SoundboardEffect(path));
+                                Database.Save();
                                 SendMessage(e.Channel, string.Format(Properties.Resources.MessageSoundReady, name));
 
                                 SoundboardLoggingService.Instance.Info(
@@ -315,6 +316,7 @@ namespace Discord.Soundboard
                         CommandDefault(e.User, e.Channel, cmd);
                         break;
                 }
+                Database.Save();
             }
         }
 
